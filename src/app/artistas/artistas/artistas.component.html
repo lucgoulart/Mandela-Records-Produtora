@@ -1,0 +1,12 @@
+<div class="carrossel-container">
+  <div class="artistas-title" [class.animate-in]="animateTitle">ARTISTAS</div>
+
+<div class="artistas-container">
+  <div class="artista-card" *ngFor="let artista of artistas">
+    <img [src]="artista.imagem" [alt]="artista.nome" />
+    <div class="overlay">
+      <h3>{{ artista.nome }}</h3>
+      <p *ngIf="artista.instagram">{{ artista.instagram }}</p>
+    </div>
+  </div>
+</div>

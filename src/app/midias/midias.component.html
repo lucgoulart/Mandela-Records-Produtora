@@ -1,0 +1,17 @@
+<div class="carrossel-container">
+  <div class="midias-title" [class.animate-in]="animateTitle">MÍDIAS</div>
+
+  <div class="video-wrapper">
+    <iframe
+      [src]="currentVideoUrl | safe"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <div class="controls">
+    <button (click)="prev()">❮</button>
+    <span>{{ currentIndex + 1 }} / {{ videoIds.length }}</span>
+    <button (click)="next()">❯</button>
+  </div>
+</div>
