@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
@@ -7,13 +7,15 @@ import { filter } from 'rxjs';
   templateUrl: './midias.component.html',
   styleUrls: ['./midias.component.scss']
 })
-export class MidiasComponent implements OnInit {
-    animateTitle = false;
+export class MidiasComponent implements OnInit, AfterViewInit {
+  @ViewChild('midiasSection', { static: true }) sectionRef!: ElementRef;
 
-  constructor(private router: Router) { }
+  animateTitle = false;
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-     this.router.events.pipe(
+    this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       this.triggerAnimation();
@@ -23,13 +25,28 @@ export class MidiasComponent implements OnInit {
     this.triggerAnimation();
   }
 
-  triggerAnimation() {
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.triggerAnimation();
+        }
+      });
+    }, { threshold: 0.5 }); // 50% da seção visível
+
+    if (this.sectionRef?.nativeElement) {
+      observer.observe(this.sectionRef.nativeElement);
+    }
+  }
+
+  triggerAnimation(): void {
     this.animateTitle = false;
     setTimeout(() => {
       this.animateTitle = true;
     }, 100);
   }
-   videoIds = [
+
+  videoIds = [
     'ZrY8hzdAKhU',
     '9MK-MuD2GKI',
     '5Ss0mERXRFA',
@@ -53,5 +70,3 @@ export class MidiasComponent implements OnInit {
     return `https://www.youtube.com/embed/${this.videoIds[this.currentIndex]}`;
   }
 }
-
-

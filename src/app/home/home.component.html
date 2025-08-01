@@ -3,10 +3,10 @@
 
   <div class="social-icons">
     <div class="social-icons-background">
-      <a href="#"><img src="assets/mandela-imgs/icone spotfy topo.svg" alt="Spotify"></a>
-      <a href="#"><img src="assets/mandela-imgs/icone youtube topo.svg" alt="YouTube"></a>
-      <a href="#"><img src="assets/mandela-imgs/icone youtube topo.svg" alt="YouTube"></a>
-      <a href="#"><img src="assets/mandela-imgs/icone instagram topo.svg" alt="Instagram"></a>
+      <a target="_blank" href="https://open.spotify.com/artist/4ghDGvAee7ZH8QcFCD9Ftt?si=lXS6pt-kSJSsR4OZid5hzQ"><img src="assets/mandela-imgs/icone spotfy topo.svg" alt="Spotify"></a>
+      <a target="_blank" href="https://youtube.com/@mandelaviverecords?si=gkRJKatBZvdFCLQO"><img src="assets/mandela-imgs/icone youtube topo.svg" alt="YouTube"></a>
+      <a target="_blank" href="https://youtube.com/@mandelaozonanorte?si=zPVXA-mGjFXxvsqb"><img src="assets/mandela-imgs/icone youtube topo.svg" alt="YouTube"></a>
+      <a target="_blank" href="https://www.instagram.com/mandelaviverecords/"><img src="assets/mandela-imgs/icone instagram topo.svg" alt="Instagram"></a>
     </div>
   </div>
 
@@ -15,34 +15,58 @@
   </div>
 
   <nav class="menu">
-    <a href="#">MÍDIAS</a>
-    <a href="#">QUEM SOMOS?</a>
-    <a href="#">COMO FUNCIONA?</a>
-    <a href="#">ARTISTAS</a>
-    <a href="#">CONTATO</a>
+    <a (click)="scrollToSection('midias')">MÍDIAS</a>
+    <a (click)="scrollToSection('quem-somos')">QUEM SOMOS?</a>
+    <a (click)="scrollToSection('como-funciona')">COMO FUNCIONA?</a>
+    <a (click)="scrollToSection('artistas')">ARTISTAS</a>
+    <a (click)="scrollToSection('contato')">CONTATO</a>
   </nav>
 </div>
 
-<div class="content-components">
+
+<div class="content-components" id="midias">
   <app-midias></app-midias>
 </div>
 
-
-<div class="content-components">
+<div class="content-components" id="quem-somos">
   <app-quem-somos></app-quem-somos>
 </div>
 
-
-<div class="content-components">
+<div class="content-components" id="como-funciona">
   <app-como-funciona></app-como-funciona>
 </div>
 
-
-<div class="content-components">
+<div class="content-components" id="artistas">
   <app-artistas></app-artistas>
 </div>
 
-
-<div class="content-components">
+<div class="content-components" id="contato">
   <app-contato></app-contato>
 </div>
+
+
+
+
+<!-- ADAPTACAO DISPOSITIVOS MENORES -->
+<!-- sidebar.component.html -->
+
+<!-- Overlay (fica por trás do menu) -->
+<div class="sidebar-overlay" *ngIf="isOpen" (click)="closeSidebar()"></div>
+
+<!-- Sidebar -->
+<div class="custom-sidebar" [class.open]="isOpen">
+  <nav>
+    <ul>
+      <li><a (click)="scrollToSection('como-funciona')" (click)="closeSidebar()">COMO FUNCIONA</a></li>
+      <li><a (click)="scrollToSection('contato')" (click)="closeSidebar()">CONTATO</a></li>
+      <li><a (click)="scrollToSection('midias')" (click)="closeSidebar()">MÍDIAS</a></li>
+      <li><a (click)="scrollToSection('videos')" (click)="closeSidebar()">VÍDEOS</a></li>
+      <li><a (click)="scrollToSection('artistas')" (click)="closeSidebar()">ARTISTAS</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- Botão para abrir -->
+<button class="sidebar-toggle" (click)="toggleSidebar()">
+  <span>&#9776;</span>
+</button>

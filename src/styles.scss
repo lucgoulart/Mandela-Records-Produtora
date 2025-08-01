@@ -8,6 +8,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Fresco Stamp';
+  src: url('assets/fonts/Fresco Stamp.ttf') format('opentype'); /* ou 'truetype' se for .ttf */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 body {
   margin: 0px;
   background-color: black;

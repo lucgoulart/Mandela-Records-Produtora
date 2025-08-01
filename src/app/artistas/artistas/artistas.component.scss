@@ -54,11 +54,13 @@
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
+  font-family: Fresco Stamp;
 }
 
 .overlay p {
   font-size: 14px;
   color: #ccc;
+  font-family: Fresco Stamp;
 }
 .artistas-title {
   top: 30px;
@@ -66,10 +68,10 @@
   right: 0;
   text-align: center;
   font-size: 80px;
-  font-weight: bold;
   letter-spacing: 5px;
-  color: #0d0d0d;
-
+  color: black;
+  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.1);
+  font-family: 'Urbanist', sans-serif;
   transform: translateX(-150%);
   transition: transform 1s ease-out;
 }
@@ -77,3 +79,16 @@
 .artistas-title.animate-in {
   transform: translateX(0);
 }
+
+
+@media (max-width: 450px) {
+
+.artistas-title{
+  font-size: 50px !important;
+}
+.artistas-container {
+  margin-top: -45px !important;
+}
+
+}
+

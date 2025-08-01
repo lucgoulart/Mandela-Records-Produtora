@@ -1,11 +1,11 @@
-<section class="como-funciona">
+<section class="como-funciona" #comoFuncionaSection>
   <div>
     <div class="fundo-lateral">COMO</div>
     <div class="fundo-lateral0">FUNCIONA?</div>
   </div>
 
   <div class="container">
-    <h2 class="title">COMO FUNCIONA?</h2>
+    <h2 class="title" [class.animate-in]="animateTitle">COMO FUNCIONA?</h2>
     <p>
       A Mandela Vive Records atua de forma inovadora, destacando-se das demais empresas do setor musical. Nosso modelo de funcionamento é majoritariamente online, o que nos permite oferecer agilidade, praticidade e alcance nacional, atendendo artistas de qualquer lugar do Brasil com qualidade e eficiência.
     </p>
@@ -17,7 +17,7 @@
     </p>
 
     <div class="item">
-      <img src="assets/mandela-imgs/bandeira sp.png" alt="São Paulo Capital" />
+      <img src="assets/mandela-imgs/sp.png" alt="São Paulo Capital" />
       <div class="text">
         <h3>São Paulo Capital</h3>
         <p>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="item">
-      <img src="assets/mandela-imgs/bandeira brasil.png" alt="Outras regiões do Brasil" />
+      <img src="assets/mandela-imgs/br.png" alt="Outras regiões do Brasil" />
       <div class="text">
         <h3>Outras regiões do Brasil</h3>
         <p>

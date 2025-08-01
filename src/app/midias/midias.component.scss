@@ -14,12 +14,12 @@
   right: 0;
   text-align: center;
   font-size: 80px;
-  font-weight: bold;
   letter-spacing: 5px;
-  color: #0d0d0d;
-
+  color: black;
+  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.1);
   transform: translateX(-150%);
   transition: transform 1s ease-out;
+  font-family: 'Urbanist', sans-serif;
 }
 
 .midias-title.animate-in {
@@ -77,3 +77,16 @@ iframe {
 //   text-align: center;
 //   z-index: 0;
 // }
+
+
+
+@media (max-width: 450px) {
+
+.midias-title{
+  font-size: 50px !important;
+}
+.video-wrapper {
+  margin-top: 55px !important;
+}
+
+}
