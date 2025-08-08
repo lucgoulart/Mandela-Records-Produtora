@@ -49,8 +49,8 @@ export class ArtistasComponent implements OnInit {
   artistas = [
     {
       nome: 'DJ GRANETTE',
-      imagemPB: 'assets/mandela-imgs/granette-pb.png',
-      imagemColor: 'assets/mandela-imgs/granette.png',
+      imagemPB: 'assets/mandela-imgs/granette peb.png',
+      imagemColor: 'assets/mandela-imgs/granette colorida.png',
       instagram: '@DJGRANETTE',
       hover: false
     },
