@@ -9,21 +9,29 @@ import { filter } from 'rxjs';
 })
 export class ArtistasComponent implements OnInit {
    @ViewChild('artistasSection', { static: true }) sectionRef!: ElementRef;
-
+    isMobileOrTablet = false;
    animateTitle = false;
 
    constructor(private router: Router) {}
 
-   ngOnInit(): void {
-     this.router.events.pipe(
-       filter(event => event instanceof NavigationEnd)
-     ).subscribe(() => {
-       this.triggerAnimation();
-     });
+ngOnInit(): void {
+  this.checkScreenSize();
 
-     // Também dispara no primeiro carregamento
-     this.triggerAnimation();
-   }
+  // Atualiza quando a tela for redimensionada ou o celular for girado
+  window.addEventListener('resize', () => this.checkScreenSize());
+
+  this.router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe(() => {
+      this.triggerAnimation();
+    });
+
+  this.triggerAnimation();
+}
+
+checkScreenSize(): void {
+  this.isMobileOrTablet = window.innerWidth <= 1024;
+}
 
    ngAfterViewInit(): void {
      const observer = new IntersectionObserver(entries => {

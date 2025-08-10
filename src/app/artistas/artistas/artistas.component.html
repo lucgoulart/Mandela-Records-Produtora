@@ -5,14 +5,16 @@
     <div
       class="artista-card"
       *ngFor="let artista of artistas"
-      (mouseenter)="artista.hover = true"
-      (mouseleave)="artista.hover = false"
+      (mouseenter)="!isMobileOrTablet && (artista.hover = true)"
+      (mouseleave)="!isMobileOrTablet && (artista.hover = false)"
     >
       <img
-        [src]="artista.hover ? artista.imagemColor : artista.imagemPB"
+        [src]="isMobileOrTablet ? artista.imagemColor : (artista.hover ? artista.imagemColor : artista.imagemPB)"
         [alt]="artista.nome"
       />
-      <div class="overlay">
+
+      <!-- Nome sempre visível no mobile/tablet -->
+      <div class="overlay" [class.show-always]="isMobileOrTablet">
         <h3>{{ artista.nome }}</h3>
         <p *ngIf="artista.instagram">{{ artista.instagram }}</p>
       </div>

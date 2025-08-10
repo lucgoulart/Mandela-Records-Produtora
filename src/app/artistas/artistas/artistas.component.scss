@@ -52,7 +52,7 @@
 
 .overlay h3 {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 100;
   margin-bottom: 10px;
   font-family: Fresco Stamp;
 }
@@ -90,5 +90,19 @@
   margin-top: -45px !important;
 }
 
+}
+
+
+.overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.artista-card:hover .overlay {
+  opacity: 1;
+}
+
+.show-always {
+  opacity: 1 !important;
 }
 
