@@ -78,8 +78,8 @@ checkScreenSize(): void {
     },
     {
       nome: 'MC MENOR PL',
-      imagemPB: 'assets/mandela-imgs/pedro-preto-branco.png',
-      imagemColor: 'assets/mandela-imgs/mc menor pl.png',
+      imagemPB: 'assets/mandela-imgs/menorpl-pb.jpg',
+      imagemColor: 'assets/mandela-imgs/menorpl-col.png',
       instagram: '@MCMENORPLOFICIAL',
       hover: false
     },
@@ -102,6 +102,13 @@ checkScreenSize(): void {
       imagemPB: 'assets/mandela-imgs/djmarcondes-pb.png',
       imagemColor: 'assets/mandela-imgs/dj marcondes.png',
       instagram: '@DJ_MARCONDES',
+      hover: false
+    },
+      {
+      nome: 'DJ MAGRIN PROD',
+      imagemPB: 'assets/mandela-imgs/magrindj-pb.png',
+      imagemColor: 'assets/mandela-imgs/magrindj-col.png',
+      instagram: '@MAGRINPROD_',
       hover: false
     },
   ];
